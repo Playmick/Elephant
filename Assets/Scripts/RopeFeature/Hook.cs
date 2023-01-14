@@ -7,10 +7,15 @@ namespace EccentricRope
         private FixedJoint _fixedJoint;
         public new Rigidbody rigidbody;
 
+        public Collider SelfCollider;
+        public Collider GunColliderForIgnore;
+
         private void Start()
         {
             if(rigidbody == null)
                 rigidbody = GetComponent<Rigidbody>();
+
+            Physics.IgnoreCollision(SelfCollider, GunColliderForIgnore);
         }
 
         private void OnCollisionEnter(Collision collision)
